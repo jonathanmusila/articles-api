@@ -20,7 +20,7 @@ class ArticlesTableSeeder extends Seeder
         // Creating articles in the database
         for($i = 0; $i < 50; $i++){
             Article::create([
-                'title' => $faker->senntence,
+                'title' => $faker->sentence,
                 'body' => $faker->paragraph
             ]);
         }
