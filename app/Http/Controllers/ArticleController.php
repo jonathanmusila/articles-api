@@ -11,40 +11,36 @@ class ArticleController extends Controller
 
         $article = Article::all();
 
-        return response()->json($article);
+        return response()->json($article, 200);
     }
 
-    public function show($id){
+    public function show(Article $article){
 
-        $article = Article::find($id);
+        $_article = $article;
 
-        return response()->json($article);
+        return response()->json($_article, 200);
     }
 
     public function store(Request $request){
 
         $article = Article::create($request->all());
         
-        return response()->json($article);
+        return response()->json($article, 201);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, Article $article){
 
-        $article = Article::findOrFail($id);
+        $_article = $article->update($request->all());
 
-        $article->update($request->all());
-
-        return response()->json($article);
+        return response()->json($_article, 200);
 
     }
 
-    public function delete(Request $request, $id){
-
-        $article = Article::findOrFail($id);
+    public function delete(Article $article){
 
         $article->delete();
 
-        return 204;
+        return response()->json(null, 204);
 
     }
 }
