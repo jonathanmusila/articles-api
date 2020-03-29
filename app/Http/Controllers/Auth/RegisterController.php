@@ -71,7 +71,7 @@ class RegisterController extends Controller
         $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         if ($validator->fails()) {
@@ -86,5 +86,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'api_key' => Str::random(60),
         ]);
+    }
+
+    public function index(){
+        
+        $users = User::all();
+
+        return response()->json($users);
     }
 }
