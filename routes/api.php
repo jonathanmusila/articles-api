@@ -27,3 +27,9 @@ Route::post('articles', 'ArticleController@store');
 Route::put('articles/{article}', 'ArticleController@update');
 
 Route::delete('articles/{article}', 'ArticleController@delete');
+
+Route::post('auth/register', 'Auth\RegisterController@create');
+
+
+
+
