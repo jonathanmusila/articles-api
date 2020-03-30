@@ -25,14 +25,22 @@ class ArticleController extends Controller
 
         $article = Article::create($request->all());
         
-        return response()->json($article, 201);
+        return response()->json([
+            'message' => "Article created successfully",
+            'status' => 201,
+            $article
+        ], 201);
     }
 
     public function update(Request $request, Article $article){
 
         $_article = $article->update($request->all());
 
-        return response()->json($_article, 200);
+        return response()->json([
+            'message' => "Article updated succesfully",
+            'status' => 200,
+            $_article
+    ], 200);
 
     }
 
@@ -40,7 +48,10 @@ class ArticleController extends Controller
 
         $article->delete();
 
-        return response()->json(null, 204);
+        return response()->json([
+            'message' => "Deleted succesfully",
+            'status' => 204,
+        ], 200);
 
     }
 }
