@@ -39,7 +39,7 @@ Route::prefix('auth')->group(function (){
 
     Route::get('/all', 'Auth\RegisterController@index');
 
-    Route::post('/login', 'Auth\LoginController@login');
+    Route::post('/login', 'AuthController@login');
 });
 
 
