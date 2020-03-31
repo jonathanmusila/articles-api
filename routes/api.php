@@ -23,13 +23,13 @@ Route::prefix('articles')->group(function () {
 
     Route::get('', 'ArticleController@index');
 
-    Route::get('/{article}', 'ArticleController@show');
+    Route::get('/{id}', 'ArticleController@show');
 
     Route::post('', 'ArticleController@store');
 
-    Route::put('/{article}', 'ArticleController@update');
+    Route::put('/{id}', 'ArticleController@update');
 
-    Route::delete('/{article}', 'ArticleController@delete');
+    Route::delete('/{id}', 'ArticleController@delete');
 
 });
 
@@ -39,7 +39,7 @@ Route::prefix('auth')->group(function (){
 
     Route::get('/all', 'Auth\RegisterController@index');
 
-    Route::post('/login', 'Auth\LoginController@login');
+    Route::post('/login', 'AuthController@login');
 });
 
 
