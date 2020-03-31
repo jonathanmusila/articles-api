@@ -82,12 +82,6 @@ class ArticleController extends Controller
 
         $article = Article::findOrFail($id);
 
-        // if(is_null($article)){
-        //     return response()->json([
-        //         'message' => "Article already deleted"
-        //     ]);
-        // }
-
         $article->delete();
 
         return response()->json([
